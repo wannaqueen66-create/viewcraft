@@ -9,6 +9,8 @@ ViewCraft is a small 3D projection puzzle game. Build a voxel structure on a 3×
 - Eight built-in puzzle levels
 - Top / left / right projection matching
 - Undo, clear, step counter, completed-level tracking
+- Responsive layout for desktop, tablet, and mobile screens
+- Chinese / English language switcher, Chinese by default
 - Touch drag and mouse drag camera rotation
 - Local progress saved in `localStorage`
 

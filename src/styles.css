@@ -14,13 +14,79 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button,
 select {
   font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.target-panel {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(51 65 85) transparent;
+}
+
+.target-panel::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.target-panel::-webkit-scrollbar-thumb {
+  background: rgb(51 65 85);
+  border-radius: 999px;
+}
+
+.stage-wrap {
+  min-height: 430px;
+}
+
+.stage-scale {
+  transform: scale(var(--stage-scale, 1));
+  transform-origin: center center;
+}
+
+@media (max-width: 479px) {
+  .stage-scale {
+    --stage-scale: 0.72;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .stage-scale {
+    --stage-scale: 0.82;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stage-scale {
+    --stage-scale: 0.95;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .stage-scale {
+    --stage-scale: 0.95;
+  }
+}
+
+@media (min-width: 1600px) {
+  .stage-scale {
+    --stage-scale: 1.15;
+  }
 }
