@@ -57,7 +57,7 @@ const i18n = {
     rotateLeft: '左转视角',
     rotateRight: '右转视角',
     resetView: '重置视角',
-    rotateHint: '触屏拖动，或按住右键/中键拖动旋转',
+    rotateHint: '触屏拖动，或按住中键拖动旋转',
     topView: '俯视图',
     topDesc: '只看是否占格，高度不限',
     leftView: '左视图',
@@ -74,7 +74,7 @@ const i18n = {
       '点击格子可让高度在 0 到 3 个方块之间循环。',
       '让当前模型的俯视图、左视图、右视图都匹配目标图。',
       '实心彩色代表正确，虚线代表缺少，红色代表多余。',
-      '手机/平板可直接拖动画面旋转；电脑可用右键或中键拖动。',
+      '手机/平板可直接拖动画面旋转；电脑可用中键拖动。',
       '部分关卡可能有多个可行结构，只要投影匹配就算过关。',
     ],
     start: '开始搭建',
@@ -92,7 +92,7 @@ const i18n = {
     rotateLeft: 'Rotate left',
     rotateRight: 'Rotate right',
     resetView: 'Reset view',
-    rotateHint: 'Touch drag, or right/middle mouse drag to rotate',
+    rotateHint: 'Touch drag, or middle mouse drag to rotate',
     topView: 'Top View',
     topDesc: 'Occupancy only; height does not matter',
     leftView: 'Left View',
@@ -109,7 +109,7 @@ const i18n = {
       'Click a tile to cycle its height from 0 to 3 blocks.',
       'Match the target top, left, and right projection grids.',
       'Solid colored cells are correct, dashed cells are missing, red cells are extra.',
-      'Drag with touch, right mouse, or middle mouse to rotate the model.',
+      'Drag with touch or middle mouse to rotate the model.',
       'Some puzzles may have more than one valid structure. Any matching projection wins.',
     ],
     start: 'Start building',
@@ -296,7 +296,7 @@ function App() {
   };
 
   const handlePointerDown = (event) => {
-    const canDrag = event.pointerType === 'touch' || event.button === 1 || event.button === 2;
+    const canDrag = event.pointerType === 'touch' || event.button === 1;
     if (!canDrag) return;
     event.preventDefault();
     event.currentTarget.setPointerCapture?.(event.pointerId);
@@ -377,7 +377,7 @@ function App() {
           </div>
         </aside>
 
-        <section className="relative min-h-[560px] overflow-hidden touch-none lg:h-[100dvh]" onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} onContextMenu={(event) => event.preventDefault()}>
+        <section className="relative min-h-[560px] overflow-hidden touch-none lg:h-[100dvh]" onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp}>
           <div className="absolute left-4 right-4 top-4 z-20 flex flex-wrap items-start justify-between gap-3 sm:left-auto sm:right-6 sm:justify-end">
             <div className="flex rounded-2xl border border-slate-700/60 bg-slate-900/80 p-2 shadow-xl backdrop-blur-md">
               <button onClick={() => setCamRot((prev) => prev - 90)} className="group rounded-xl p-3 text-slate-300 transition-all hover:bg-slate-800 hover:text-white" title={t.rotateLeft}>
